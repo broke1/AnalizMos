@@ -1,17 +1,20 @@
 <template>
-  <div class="back"></div>
-  <div class="back reverse"></div>
-  <Menu />
+  <section class="main_page">
+    <Menu />
+    <Title />
+  </section>
 </template>
 
 <script>
 
 import Menu from './Menu/Menu.vue'
+import Title from './Title/Title.vue'
 
 export default {
   name: 'MainPage',
   components: {
-    Menu
+    Menu,
+    Title
   },
 }
 </script>

@@ -20,6 +20,7 @@ const store = createStore({
         url: "#"
       },
     ],
+    title: "Независимая </br> судебная экспертиза"
   },
   mutations: {
 
