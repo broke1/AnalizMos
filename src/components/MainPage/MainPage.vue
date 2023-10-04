@@ -2,6 +2,7 @@
   <section class="main_page">
     <Menu />
     <Title />
+    <Uslugi />
   </section>
 </template>
 
@@ -9,12 +10,14 @@
 
 import Menu from './Menu/Menu.vue'
 import Title from './Title/Title.vue'
+import Uslugi from './Uslugi/Uslugi.vue'
 
 export default {
   name: 'MainPage',
   components: {
     Menu,
-    Title
+    Title,
+    Uslugi
   },
 }
 </script>
