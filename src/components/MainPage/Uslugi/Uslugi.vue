@@ -10,7 +10,12 @@
         v-html="this.$store.state.uslugi.sub_title"
       ></div>
       <div class="uslugi_section_container_block">
-        <div class="uslugi_section_container_block_row">
+        <div 
+          ref="uslugi_row_first" 
+          :data-id="0"
+          class="uslugi_section_container_block_row"
+          :class="{uslugi_section_container_block_row__show: isRowShow[0]}"
+        >
           <div 
             class="uslugi_section_container_block_row_item"
             v-for="item in this.$store.state.uslugi.items.filter( (item, index) => index < 3 && item)"
@@ -24,7 +29,12 @@
             </div>
           </div>
         </div>
-        <div class="uslugi_section_container_block_row">
+        <div 
+          ref="uslugi_row_second" 
+          :data-id="1"
+          class="uslugi_section_container_block_row"
+          :class="{uslugi_section_container_block_row__show: isRowShow[1]}"
+        >
           <div 
             class="uslugi_section_container_block_row_item"
             v-for="item in this.$store.state.uslugi.items.filter( (item, index) => index > 2 && item)"
@@ -39,7 +49,12 @@
           </div>
         </div>
       </div>
-      <div class="uslugi_section_container_line"></div>
+      <div 
+        ref="uslugi_line" 
+        class="uslugi_section_container_line"
+        :data-id="2"
+        :class="{uslugi_section_container_line__show: isRowShow[2]}"
+      ></div>
     </div>
   </section>
   
@@ -50,6 +65,34 @@
 
 export default {
   name: 'UslugiSection',
+  data(){
+    return {
+      isRowShow: {}
+    }
+  },
+  methods: {
+    handleIntersection(entries) {
+      entries.forEach(  (entry) => {
+        if (entry.isIntersecting) {
+          this.isRowShow[entry.target.dataset.id] = entry.isIntersecting
+        }
+      })
+    }
+  },
+  mounted() {
+    let observer = new IntersectionObserver(this.handleIntersection,{
+      threshold: [0.5],
+    })
+
+    for (let el of Object.values(this.$refs)) {
+      observer.observe(el)
+    }
+
+    this.observer = observer
+  },
+  beforeUnmount() {
+    this.observer.disconnect()
+  },
 }
 
 </script>

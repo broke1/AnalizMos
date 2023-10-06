@@ -43,6 +43,9 @@
         justify-content: center
         align-items: center
         width: 100%
+        transition: $transition
+        opacity: 0
+        transform: translateY(50%)
 
         &_item
           position: relative
@@ -83,6 +86,10 @@
             z-index: 1
             border-radius: 10px
 
+        &__show
+          transform: translateY(0%)
+          opacity: 1
+
 
     &_line
       width: 100%
@@ -92,7 +99,11 @@
       position: absolute
       bottom: 0px
       left: 0
-      animation: line_to_full 4s linear 0s 
+      opacity: 0
+
+      &__show
+        opacity: 1
+        animation: line_to_full 4s linear 0s 
     
   
 
