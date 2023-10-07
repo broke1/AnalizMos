@@ -10,6 +10,7 @@
           v-for="link in this.$store.state.menu" 
           :key="link.name" 
           :href="link.url"
+          @click="(e) => handleClickMenu(e,link.url)"
           class="menu_section_links_block_link"
         >
           {{ link.name }}
@@ -39,6 +40,12 @@ export default {
   methods: {
     handleScroll () {
       this.isSticky = window.scrollY > 150
+    },
+    handleClickMenu (e,url) {
+      e.preventDefault()
+      document.querySelector(`.${url}_section`).scrollIntoView({
+        behavior: "smooth"
+      })
     }
   }
 }
