@@ -18,8 +18,9 @@
         >
           <div 
             class="whyus_section_container_block_right_row"
+            :style="{ animationDelay: (0.3 * index) + 's' }"
             :class="{whyus_section_container_block_right_row_show: isRowShow[0]}"
-            v-for="(item) in this.$store.state.whyus.list"
+            v-for="(item, index) in this.$store.state.whyus.list"
             :key="{item}"
           >
             <div class="whyus_section_container_block_right_row_img"></div>
@@ -38,8 +39,8 @@
       <!-- <div 
         ref="whyus_line" 
         class="whyus_section_container_line"
-        :data-id="2"
-        :class="{whyus_section_container_line__show: isRowShow[2]}"
+        :data-id="0"
+        :class="{whyus_section_container_line__show: isRowShow[0]}"
       ></div> -->
     </div>
   </section>
@@ -53,7 +54,7 @@ export default {
   name: 'WhyUsSection',
   data(){
     return {
-      isRowShow: Array(3).fill(false)
+      isRowShow: {},
     }
   },
   methods: {

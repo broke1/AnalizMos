@@ -4,6 +4,9 @@
     <Title />
     <Uslugi />
     <WhyUs />
+    <AboutExpertise />
+    <Contacts />
+    <Footer />
   </section>
 </template>
 
@@ -13,6 +16,9 @@ import Menu from './Menu/Menu.vue'
 import Title from './Title/Title.vue'
 import Uslugi from './Uslugi/Uslugi.vue'
 import WhyUs from './WhyUs/WhyUs.vue'
+import AboutExpertise from "./AboutExpertise/AboutExpertise.vue"
+import Contacts from "./Contacts/Contacts.vue"
+import Footer from "./Footer/Footer.vue"
 
 export default {
   name: 'MainPage',
@@ -20,7 +26,10 @@ export default {
     Menu,
     Title,
     Uslugi,
-    WhyUs
+    WhyUs,
+    AboutExpertise,
+    Contacts,
+    Footer
   },
 }
 </script>
