@@ -110,14 +110,35 @@ const store = createStore({
       author: "made by @fred_apriori"
     },
     form: {
-      show: false
+      show: false,
+      name: '',
+      phone: '',
+      text: '',
+      msgError: false
     }
   },
   mutations: {
+    sendForm (state) {
 
+      const data = {
+        name: state.form.name,
+        phone: state.form.phone,
+        text: state.form.text,
+      }
+
+      fetch(`/sendForm`, { 
+        method: 'POST',
+        body: JSON.stringify(data),
+        // mode: 'no-cors'  
+      }).then( res => {
+        if (!['200','204'].includes(res.status)) state.form.msgError = true  
+      })
+        .catch (() => {
+          console.log('errro')
+        }) 
+    }
   },
   actions: {
-
   },
   getters: {
       
