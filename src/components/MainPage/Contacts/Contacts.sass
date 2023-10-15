@@ -38,6 +38,21 @@
         align-items: flex-start
         position: relative
         padding: 40px
+
+        &_line
+          width: 70%
+          height: 2px
+          background: $white
+          border-radius: 4px
+          position: absolute
+          bottom: 90px
+          left: 0
+          opacity: 0
+          z-index: 2
+
+          &__show
+            opacity: 1
+            animation: line_to_part 4s linear 0s 
         
         &_overlay
           position: absolute
@@ -86,6 +101,30 @@
             font-size: 1.5rem
             line-height: 2rem
             color: $white
+
+        &_under_text
+          color: $white
+          font-sie: 1rem
+          line-height: 1.2rem
+          margin-top: 40px
+          z-index: 2
+          opacity: 0
+
+          &__show
+            // opacity: 1
+            animation: show 0.4s linear
+            animation-fill-mode: forwards
+
+      &_right
+        opacity: 0
+        trandform: translateX(200%)
+        width: 550px
+        height: 400px
+
+        &__show
+          opacity: 1
+          animation: show_horizontal 0.8s linear
+          animation-fill-mode: forwards
 
     &_line
       width: 100%

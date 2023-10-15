@@ -7,6 +7,7 @@
     <AboutExpertise />
     <Contacts />
     <Footer />
+    <Form />
   </section>
 </template>
 
@@ -19,6 +20,7 @@ import WhyUs from './WhyUs/WhyUs.vue'
 import AboutExpertise from "./AboutExpertise/AboutExpertise.vue"
 import Contacts from "./Contacts/Contacts.vue"
 import Footer from "./Footer/Footer.vue"
+import Form from "./Form/Form.vue"
 
 export default {
   name: 'MainPage',
@@ -29,7 +31,8 @@ export default {
     WhyUs,
     AboutExpertise,
     Contacts,
-    Footer
+    Footer,
+    Form
   },
 }
 </script>

@@ -13,11 +13,11 @@ const store = createStore({
       },
       {
         name: "Информация",
-        url: "#"
+        url: "about_expertise"
       },
       {
         name: "Контакты",
-        url: "#"
+        url: "contacts"
       },
     ],
     title: "Независимая </br> судебная экспертиза",
@@ -79,19 +79,19 @@ const store = createStore({
       title: "НАШИ КОНТАКТЫ",
       list: [
         {
-          img: require('../assets/check.svg'),
+          img: require('../assets/location.png'),
           text: "г. Москва, Хлебозаводский пр-д, 7с9"
         },
         {
-          img: require('../assets/check.svg'),
+          img: require('../assets/phone.png'),
           text: "+7 (495)133-72-71"
         },
         {
-          img: require('../assets/check.svg'),
+          img: require('../assets/email.png'),
           text: "info.analiz.rf@gmail.com"
         },
         {
-          img: require('../assets/check.svg'),
+          img: require('../assets/clock.png'),
           text: "Пн.-Пт.: 10:00 — 18:00"
         },
         {
@@ -102,11 +102,15 @@ const store = createStore({
           img: '',
           text: "Вс.: выходной"
         }
-      ]
+      ],
+      underText: 'АНО "Анализ" все права защищены'
     },
     footer: {
-      company: "AnalizMos 2023",
+      company: "Эталон 2023",
       author: "made by @fred_apriori"
+    },
+    form: {
+      show: false
     }
   },
   mutations: {

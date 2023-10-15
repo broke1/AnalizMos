@@ -16,7 +16,10 @@
           {{ link.name }}
         </a>
       </div>
-      <div class="menu_section_call_back">
+      <div 
+        class="menu_section_call_back"
+        @click="() => handleClickCallBack()"
+      >
         {{ "Заказать консультацию" }}
       </div>
     </div>
@@ -46,6 +49,11 @@ export default {
       document.querySelector(`.${url}_section`).scrollIntoView({
         behavior: "smooth"
       })
+    },
+    handleClickCallBack () {
+      this.$store.state.form.show = true
+      document.querySelector('body').style.heigth = "100vh";
+      document.querySelector('body').style.overflow = "hidden";
     }
   }
 }
