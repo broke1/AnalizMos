@@ -126,12 +126,16 @@ const store = createStore({
         text: state.form.text,
       }
 
+      // fetch(`${window.location.protocol}//${window.location.hostname}:5000/sendForm`, { 
       fetch(`/sendForm`, { 
         method: 'POST',
         body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json" 
+        }
         // mode: 'no-cors'  
       }).then( res => {
-        if (!['200','204'].includes(res.status)) state.form.msgError = true  
+        if (![200,204].includes(res.status)) state.form.msgError = true  
       })
         .catch (() => {
           console.log('errro')
