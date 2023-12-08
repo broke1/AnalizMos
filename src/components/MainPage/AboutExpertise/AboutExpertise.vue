@@ -38,7 +38,12 @@ export default {
   data(){
     return {
       isRowShow: {},
+      mobile: false
     }
+  },
+  created () {
+    screen.width < 450 ? this.mobile = true : this.mobile = false
+    window.addEventListener("resize", this.handleResize)
   },
   methods: {
     handleIntersection(entries) {
@@ -48,11 +53,14 @@ export default {
           this.isRowShow[entry.target.dataset.id] = entry.isIntersecting
         }
       })
+    },
+    handleResize () {
+      screen.width < 450 ? this.mobile = true : this.mobile = false
     }
   },
   mounted() {
     let observer = new IntersectionObserver(this.handleIntersection,{
-      threshold: [0.5],
+      threshold: [this. mobile ? 0 :0.5],
     })
     for (let el of Object.values(this.$refs)) {
       observer.observe(el)

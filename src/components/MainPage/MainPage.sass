@@ -1,12 +1,15 @@
 .main_page
   width: 100vw
-  height: 500vh
+  height: auto
   background: url("../../assets/back.jpg") repeat
   background-size: contain
   display: flex
   flex-flow: column nowrap
   justify-content: flex-start
   align-items: center
+
+  @media screen and (max-width: 450px) 
+    background-size: 250%
   
 .container
   width: 1110px

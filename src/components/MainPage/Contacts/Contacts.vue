@@ -65,12 +65,12 @@
           :class="{contacts_section_container_block_right__show: isRowShow[5]}"
         >
           <iframe 
-            src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Abd1b002c0c911d02d8ad379cce2f234fad5a806c44a3787e3117239a47c63ed7" 
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3Af69734620b0dc51574442af80bbe58ac4f018e448b8d9d7a1ff069b2e5407d4d&amp;source=constructor" 
+            width="100%" 
+            :height="`${this.mobile ? 250 : 400}px`" 
+            style="display: block; border-radius: 4px"
             frameborder="0" 
             allowfullscreen="true" 
-            width="100%" 
-            height="400px" 
-            style="display: block; border-radius: 4px"
           ></iframe>
         </div>
       </div>
@@ -87,8 +87,12 @@ export default {
   data(){
     return {
       isRowShow: {},
-      // list: this.$store.state.contacts.list
+      mobile: false
     }
+  },
+  created () {
+    screen.width < 450 ? this.mobile = true : this.mobile = false
+    window.addEventListener("resize", this.handleResize)
   },
   methods: {
     handleIntersection(entries) {
@@ -98,6 +102,9 @@ export default {
           this.isRowShow[entry.target.dataset.id] = entry.isIntersecting
         }
       })
+    },
+    handleResize () {
+      screen.width < 450 ? this.mobile = true : this.mobile = false
     }
   },
   mounted() {

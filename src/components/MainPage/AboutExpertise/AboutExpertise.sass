@@ -14,6 +14,9 @@
     align-items: flex-start
     position: relative
 
+    @media screen and (max-width: 450px) 
+      width: 90vw
+
     &_block
       display: flex
       flex-flow: column nowrap
@@ -27,7 +30,13 @@
       transform: translateY(100px)
       transition: $transition
       position: relative
-      
+
+      @media screen and (max-width: 450px) 
+        margin-top: 70px
+        margin-bottom: 70px
+        width: calc(90vw - 60px)
+        padding: 30px
+
       &::after
         content: ""
         position: absolute
@@ -49,6 +58,10 @@
         text-align: center
         z-index: 2
 
+        @media screen and (max-width: 450px) 
+          font-size: 2.2rem
+          line-height: 3rem
+
       &_subtitle
         font-size: 1.5rem
         line-height: 1.7rem
@@ -56,6 +69,10 @@
         text-align: left
         z-index: 2
         margin-bottom: 30px
+
+        @media screen and (max-width: 450px) 
+          font-size: 1.3rem
+          line-height: 1.6rem
 
       &__show
         opacity: 1
