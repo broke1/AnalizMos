@@ -143,7 +143,8 @@ const store = createStore({
       name: '',
       phone: '',
       text: '',
-      msgError: false
+      msgError: false,
+      preloader: false
     }
   },
   mutations: {
@@ -155,8 +156,10 @@ const store = createStore({
         text: state.form.text,
       }
 
-      // fetch(`${window.location.protocol}//${window.location.hostname}:5000/sendForm`, { 
-      fetch(`/sendForm`, { 
+      state.form.preloader = true
+
+      fetch(`${window.location.protocol}//${window.location.hostname}:5000/sendForm`, { 
+      // fetch(`/sendForm`, { 
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -164,11 +167,24 @@ const store = createStore({
         }
         // mode: 'no-cors'  
       }).then( res => {
-        if (![200,204].includes(res.status)) state.form.msgError = true  
+        if (![200,204].includes(res.status)) {
+          state.form.msgError = true  
+        } else {
+          state.form = {
+            show: false,
+            name: '',
+            phone: '',
+            text: '',
+            msgError: false
+          }
+        }
       })
         .catch (() => {
-          console.log('errro')
+          console.log('error')
         }) 
+        .finally (() => {
+          state.form.preloader = false
+        })
     }
   },
   actions: {

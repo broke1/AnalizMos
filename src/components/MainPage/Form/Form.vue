@@ -32,7 +32,16 @@
         class="form_section_block_btn_row_btn"
         @click="() => handleClickSend()"
       >
-        {{ "Отправить" }}
+        <div 
+          v-show="this.$store.state.form.preloader"
+          class="form_section_block_btn_row_btn_preloader"
+        ></div>
+        <div 
+          v-show="!this.$store.state.form.preloader"
+        >
+          {{  "Отправить" }}
+        </div>
+        
       </div>
     </div>
     <div 
