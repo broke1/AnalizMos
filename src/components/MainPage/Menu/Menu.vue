@@ -81,7 +81,7 @@ export default {
       document.querySelector(`.${url}_section`).scrollIntoView({
         behavior: "smooth"
       })
-      this.handleOpenMenu()
+      screen.width < 450 && this.handleOpenMenu()
     },
     handleClickCallBack () {
       this.$store.state.form.show = true
