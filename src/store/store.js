@@ -151,10 +151,10 @@ const store = createStore({
           text: "КПП: 770201001"
         },
       ],
-      underText: 'АНО "Анализ" все права защищены'
+      underText: 'ООО "ЦНОИП Эталон" все права защищены'
     },
     footer: {
-      company: `ООО "ЦНОИП "Эталон" все права защищены 2023`,
+      company: `ООО "ЦНОИП Эталон" все права защищены 2023`,
       author: "made by @fred_apriori"
     },
     form: {
