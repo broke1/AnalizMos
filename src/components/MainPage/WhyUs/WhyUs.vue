@@ -5,10 +5,15 @@
         class="whyus_section_container_title"
         v-html="this.$store.state.whyus.title"
       ></div>
-      <div 
-        class="whyus_section_container_title_sub"
-        v-html="this.$store.state.whyus.sub_title"
-      ></div>
+      <div class="whyus_section_container_title_sub">
+        <div 
+          class="whyus_section_container_title_sub_item"
+          v-for="(item, index) in this.$store.state.whyus.title_sub_list"
+          :key="{index}"
+        >
+        {{ item }}
+        </div>
+      </div>
       <div class="whyus_section_container_block">
         <div class="whyus_section_container_block_left"></div>
         <div 
@@ -34,6 +39,15 @@
             :data-id="1"
             :class="{whyus_section_container_block_right_overlay_show: isRowShow[1]}"
           ></div>
+        </div>
+      </div>
+      <div class="whyus_section_container_footer">
+        <div 
+          class="whyus_section_container_footer_item"
+          v-for="(item, index) in this.$store.state.whyus.footer_list"
+          :key="{index}"
+        >
+        {{ item }}
         </div>
       </div>
       <!-- <div 

@@ -17,12 +17,14 @@
           class="about_expertise_section_container_block_title"
           v-html="this.$store.state.aboutExpertise.title"
         ></div>
-        <div 
-          class="about_expertise_section_container_block_subtitle"
-          v-for="item in this.$store.state.aboutExpertise.textarr"
-          :key="{item}"
-        >
-          {{ item }}
+        <div class="about_expertise_section_container_block_subtitle">
+          <div 
+            class="about_expertise_section_container_block_subtitle_item"
+            v-for="item in this.$store.state.aboutExpertise.textarr"
+            :key="{item}"
+          >
+            {{ item }}
+          </div>
         </div>
       </div>
     </div>

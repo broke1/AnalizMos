@@ -35,13 +35,28 @@
 
       &_sub
         margin-top: 30px
-        font-size: 2rem
-        line-height: 3rem
-        color: $grey
+        font-size: 1.8rem
+        line-height: 2.8rem
+        color: $white_on_overlay
+        text-align: left
+        position: relative
+        padding: 40px
+
+        &::after
+          content: ""
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          background: $grey
+          opacity: 0.2
+          z-index: 1
+          border-radius: 10px
 
         @media screen and (max-width: 450px) 
-          font-size: 1.5rem
-          line-height: 2rem
+          font-size: 1.3rem
+          line-height: 1.8rem
 
     &_block
       display: flex
