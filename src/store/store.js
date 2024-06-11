@@ -189,8 +189,8 @@ const store = createStore({
       underText: 'ООО "ЦНОИП Эталон" все права защищены'
     },
     footer: {
-      company: `ООО "ЦНОИП Эталон" все права защищены 2023`,
-      author: "made by @fred_apriori"
+      company: `"ООО ЦНОИП Эталон" все права защищены 2023`,
+      author: "made by @fred_apriori, -netvolf"
     },
     form: {
       show: false,
@@ -231,6 +231,8 @@ const store = createStore({
             text: '',
             msgError: false
           }
+          document.querySelector('body').style.heigth = "auto";
+          document.querySelector('body').style.overflow = "auto";
         }
       })
         .catch (() => {
