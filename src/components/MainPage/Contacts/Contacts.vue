@@ -67,7 +67,7 @@
           <iframe 
             src="https://yandex.ru/map-widget/v1/?um=constructor%3Af69734620b0dc51574442af80bbe58ac4f018e448b8d9d7a1ff069b2e5407d4d&amp;source=constructor" 
             width="100%" 
-            :height="`${this.mobile ? 250 : 400}px`" 
+            :height="`${this.mobile ? 250 : 500}px`" 
             style="display: block; border-radius: 4px"
             frameborder="0" 
             allowfullscreen="true" 
@@ -91,20 +91,19 @@ export default {
     }
   },
   created () {
-    screen.width < 450 ? this.mobile = true : this.mobile = false
+    screen.width < 460 ? this.mobile = true : this.mobile = false
     window.addEventListener("resize", this.handleResize)
   },
   methods: {
     handleIntersection(entries) {
       entries.forEach(  (entry) => {
         if (entry.isIntersecting) {
-          console.log("wrer")
           this.isRowShow[entry.target.dataset.id] = entry.isIntersecting
         }
       })
     },
     handleResize () {
-      screen.width < 450 ? this.mobile = true : this.mobile = false
+      screen.width < 460 ? this.mobile = true : this.mobile = false
     }
   },
   mounted() {

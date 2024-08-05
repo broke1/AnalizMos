@@ -43,4 +43,4 @@ def sendForm():
 
 # тут видимо указываем на каком порту будем слушать запросы с фронта (на каком фласк поднимется)
 if __name__ == '__main__': 
-    app.run(debug=True, port=5000) 
+    app.run(debug=True, port=80) 
