@@ -36,6 +36,29 @@
               {{item.text}}
             </div>
           </div>
+          <!-- <div 
+            class="contacts_section_container_block_left_row"
+            :style="{ animationDelay: (0.3 * index) + 3 + 's' }"
+            :class="{contacts_section_container_block_left_row_show: isRowShow[1]}"
+            v-for="(item, index) in this.$store.state.contacts.pdf"
+            :key="item.text"
+          >
+            <a 
+              :href="item.url" 
+              target="blank" 
+              class="contacts_section_container_block_left_row_link"
+              download
+            >
+              <div class="contacts_section_container_block_left_row_img">
+                <img 
+                  :src="item.img" 
+                />
+              </div>
+              <div class="contacts_section_container_block_left_row_text">
+                {{item.text}}
+              </div>
+            </a>
+          </div> -->
           <div 
             ref="contacts_block_line" 
             class="contacts_section_container_block_left_line"
@@ -52,6 +75,31 @@
             {{ this.$store.state.contacts.underText }}
           </div>
           <div 
+            ref="contacts_block_underpdf" 
+            class="contacts_section_container_block_left_under_pdf"
+            :data-id="7"
+            :class="{contacts_section_container_block_left_under_pdf__show: isRowShow[7]}"
+            :style="{ animationDelay: '2s' }"
+          >
+            <a 
+                :href="item.url" 
+                target="blank" 
+                class="contacts_section_container_block_left_under_pdf_link"
+                download
+                 v-for="item in this.$store.state.contacts.pdf"
+                :key="item.text"
+              >
+                <div class="contacts_section_container_block_left_under_pdf_img">
+                  <img 
+                    :src="item.img" 
+                  />
+                </div>
+                <div class="contacts_section_container_block_left_under_pdf_text">
+                  {{item.text}}
+                </div>
+            </a>
+          </div>
+          <div 
             ref="contacts_overlay" 
             class="contacts_section_container_block_left_overlay"
             :data-id="2"
@@ -60,9 +108,9 @@
         </div>
         <div 
           ref="contacts_block_right" 
-          :data-id="5"
+          :data-id="6"
           class="contacts_section_container_block_right"
-          :class="{contacts_section_container_block_right__show: isRowShow[5]}"
+          :class="{contacts_section_container_block_right__show: isRowShow[6]}"
         >
           <iframe 
             src="https://yandex.ru/map-widget/v1/?um=constructor%3Af69734620b0dc51574442af80bbe58ac4f018e448b8d9d7a1ff069b2e5407d4d&amp;source=constructor" 
@@ -98,6 +146,7 @@ export default {
     handleIntersection(entries) {
       entries.forEach(  (entry) => {
         if (entry.isIntersecting) {
+          console.log(entry.target.dataset.id)
           this.isRowShow[entry.target.dataset.id] = entry.isIntersecting
         }
       })
@@ -108,7 +157,7 @@ export default {
   },
   mounted() {
     let observer = new IntersectionObserver(this.handleIntersection,{
-      threshold: [0.5],
+      threshold: this.mobile == true ? [0.2] : [0.5],
     })
     for (let el of Object.values(this.$refs)) {
       observer.observe(el)

@@ -51,7 +51,6 @@ export default {
     handleIntersection(entries) {
       entries.forEach(  (entry) => {
         if (entry.isIntersecting) {
-          console.log("wrer")
           this.isRowShow[entry.target.dataset.id] = entry.isIntersecting
         }
       })

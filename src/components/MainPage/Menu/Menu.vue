@@ -69,7 +69,7 @@ export default {
   },
   created () {
     window.addEventListener('scroll', this.handleScroll)
-    screen.width < 450 ? this.mobile = true : this.mobile = false
+    screen.width < 460 ? this.mobile = true : this.mobile = false
     window.addEventListener("resize", this.handleResize)
   },
   methods: {
@@ -81,7 +81,7 @@ export default {
       document.querySelector(`.${url}_section`).scrollIntoView({
         behavior: "smooth"
       })
-      screen.width < 450 && this.handleOpenMenu()
+      screen.width < 460 && this.handleOpenMenu()
     },
     handleClickCallBack () {
       this.$store.state.form.show = true
@@ -92,7 +92,7 @@ export default {
       this.openMenu = !this.openMenu
     },
     handleResize () {
-      screen.width < 450 ? this.mobile = true : this.mobile = false
+      screen.width < 460 ? this.mobile = true : this.mobile = false
     }
   }
 }
