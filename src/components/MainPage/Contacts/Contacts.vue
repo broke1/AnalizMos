@@ -70,16 +70,16 @@
             class="contacts_section_container_block_left_under_text"
             :data-id="4"
             :class="{contacts_section_container_block_left_under_text__show: isRowShow[4]}"
-            :style="{ animationDelay: '2s' }"
+            :style="{ animationDelay: '1s' }"
           >
             {{ this.$store.state.contacts.underText }}
           </div>
           <div 
             ref="contacts_block_underpdf" 
             class="contacts_section_container_block_left_under_pdf"
-            :data-id="7"
-            :class="{contacts_section_container_block_left_under_pdf__show: isRowShow[7]}"
-            :style="{ animationDelay: '2s' }"
+            :data-id="5"
+            :class="{contacts_section_container_block_left_under_pdf__show: isRowShow[5]}"
+            :style="{ animationDelay: '1s' }"
           >
             <a 
                 :href="item.url" 
@@ -157,7 +157,7 @@ export default {
   },
   mounted() {
     let observer = new IntersectionObserver(this.handleIntersection,{
-      threshold: this.mobile == true ? [0.2] : [0.5],
+      threshold: [0.2],
     })
     for (let el of Object.values(this.$refs)) {
       observer.observe(el)
